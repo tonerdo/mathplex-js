@@ -1,6 +1,8 @@
 /**
  * Copyright (c) 2015 Toni Solarin-Sodara
  *
+ * MIT License
+ *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
  * files (the "Software"), to deal in the Software without restriction,
@@ -235,11 +237,116 @@ Complex.exp = function(num) {
   var complex;
   complex = Complex.transform(num);
 
-  return complex.imaginary === 0 ?
+  return complex.imaginary === 0 ? Complex.E.pow(complex.real) : Complex.polar(Math.exp(complex.real), complex.imaginary);
 
 };
 
 
+// Trigonometric Functions
+
+// formula: tan(c) = (e^(ci)-e^(-ci))/(i(e^(ci)+e^(-ci)))
+Complex.tan = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var ci = complex.multiply(Complex.I);
+  var pos = Complex.exp(ci);
+  var neg = Complex.exp(Complex.negate(ci));
+
+  return pos.subtract(neg).divide(Complex.exp(ci).add(Complex.exp(Complex.negate(ci))));
+
+};
+
+// formula: sin(c) = (e^(ci)-e^(-ci))/(2i)
+Complex.sin = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var ci = complex.multiply(Complex.I);
+
+  return Complex.exp(ci).subtract(Complex.exp(Complex.negate(ci))).divide(new Complex(0, 2));
+
+};
+
+// formula: cos(c) = (e^(ci)+e^(-ci))/2
+Complex.cos = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var ci = complex.multiply(Complex.I);
+
+  return Complex.exp(ci).add(Complex.exp(Complex.negate(ci))).divide(new Complex(2, 0));
+
+};
+
+
+// formula: cot(c) = i(e^(ci)+e^(-ci))/(e^(ci)-e^(-ci))
+Complex.cot = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var ci = complex.multiply(Complex.I);
+  var pos = Complex.exp(ci);
+  var neg = Complex.exp(Complex.negate(ci));
+
+  return pos.add(neg).multiply(Complex.I).divide(pos.subtract(neg));
+
+};
+
+// formula: sec(c) = 2/(e^(ci)+e^(-ci))
+Complex.sec = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var ci = complex.multiply(Complex.I);
+
+  return new Complex(2, 0).divide(Complex.exp(ci).add(Complex.exp(Complex.negate(ci))));
+};
+
+// formula: cosec(c) = 2i/(e^(ci)-e^(-ci))
+Complex.cosec = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return new Complex(2, 0).divide(Complex.exp(ci).subtract(Complex.exp(Complex.negate(ci))));
+
+};
+
+// formula: arctan(c) = i/2 log((i+x)/(i-x))
+Complex.atan = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return Complex.I.multiply(Complex.log(Complex.I.add(complex).divide(Complex.I.subtract(complex)))).divide(new Complex(2, 0));
+
+};
+
+// formula: arcsec(c) = -i*log(1/c+sqrt(1-i/c^2))
+Complex.asec = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return Complex.NEG_I.multiply(Complex.log(complex.pow(-1).add(Complex.sqrt(Complex.ONE.subtract(Complex.I.divide(complex.pow(2)))))));
+
+};
+
+// formula: arccos(c) = i*log(c-i*sqrt(1-c^2))
+Complex.acos = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return Complex.I.multiply(Complex.log(complex.subtract(Complex.I).multiply(Complex.sqrt(Complex.ONE.subtract(complex.pow(2))))));
+
+};
 
 // Non static methods (internal use of static methods)
 Complex.prototype.add = function(num) {
@@ -292,4 +399,40 @@ Complex.prototype.sqrt = function() {
 
 Complex.prototype.log = function() {
   return Complex.log(this);
+};
+
+Complex.prototype.tan = function() {
+  return Complex.tan(this);
+};
+
+Complex.prototype.sin = function() {
+  return Complex.sin(this);
+};
+
+Complex.prototype.cos = function() {
+  return Complex.cos(this);
+};
+
+Complex.prototype.cot = function() {
+  return Complex.cot(this);
+};
+
+Complex.prototype.sec = function() {
+  return Complex.sec(this);
+};
+
+Complex.prototype.cosec = function() {
+  return Complex.cosec(this);
+};
+
+Complex.prototype.atan = function() {
+  return Complex.atan(this);
+};
+
+Complex.prototype.asin = function() {
+  return Complex.asin(this);
+};
+
+Complex.prototype.acos = function() {
+  return Complex.acos(this);
 };
