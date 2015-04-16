@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2015 Toni Solarin-Sodara
  *
  * MIT License
@@ -23,30 +23,118 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * This module contains the class and all methods for working with complex numbers
+ * @module Mathplex
+ */
+
+
+/**
+ * @class Complex
+ * @constructor
+ * @param real {Number} The real part of a complex number
+ * @param imaginary {Number} The real part of a complex number
+ * @return {Complex} An instance of the Complex class
+ */
 
 function Complex(real, imaginary) {
 
+  /**
+   * The real part of a complex number
+   * @property real
+   * @type Number
+   */
   this.real = 0;
+
+  /**
+   * The imaginary part of a complex number
+   * @property imaginary
+   * @type Number
+   */
   this.imaginary = 0;
   
   this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
   this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
 
+  /**
+   * Two dimensional distance from the origin
+   * @property magnitude
+   * @type Number
+   */
   this.magnitude = Math.sqrt((this.real * this.real) + (this.imaginary * this.imaginary));
+
+  /**
+   * The arc tangent (in radians) of the real and imaginary. Useful in polar form calculation
+   * @property tangent
+   * @type Number
+   */
   this.tangent = Math.atan2(this.imaginary, this.real);
   this.tangent = Math.PI - (Math.PI * 3 - (Math.PI - (Math.PI * 3 - this.tangent) % (Math.PI * 2))) % (Math.PI * 2);
 
 }
 
 // Constants
+
+/**
+ * A complex number with both real and imaginary parts set to zero
+ * @property ZERO
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.ZERO = new Complex(0, 0);
+
+/**
+ * A complex number with real part set to one and imaginary part set to zero
+ * @property ONE
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.ONE = new Complex(1, 0);
+
+/**
+ * A complex number with real part set to zero and imaginary part set to one
+ * @property I
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.I = new Complex(0, 1);
+
+/**
+ * A complex number with real part set to negative one and imaginary part set to zero
+ * @property NEG_I
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.NEG_I = new Complex(0, -1);
-Complex.SQR_I = -1;
+
+/**
+ * A complex number with real part set to PI and imaginary part set to zero
+ * @property PI
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.PI = new Complex(Math.PI, 0);
+
+/**
+ * A complex number with real part set to constant e and imaginary part set to zero
+ * @property E
+ * @final
+ * @static
+ * @type Complex
+ */
 Complex.E = new Complex(Math.E, 0);
 
+// Helper functions
+/**
+ * Standalone function to parse a string expression into a complex number and returns the result
+ * @method parseComplex
+ * @return {Complex} An instance of the Complex class
+ */
 var parseComplex = function(num) {
 
   if (num instanceof Complex)
@@ -94,6 +182,14 @@ var parseComplex = function(num) {
 };
 
 // Static Methods
+
+/**
+ * Transforms a number or string to a complex number and returns the result
+ * @method transform
+ * @static
+ * @param num {String} The object to transform to a complex number
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.transform = function(num) {
 
   var complex;
@@ -106,6 +202,14 @@ Complex.transform = function(num) {
 
 };
 
+/**
+ * Adds two complex numbers together and returns the result
+ * @method add
+ * @static
+ * @param first {Complex} An instance of the Complex Class
+ * @param second {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.add = function(first, second) {
 
   var firstnum, secondnum;
@@ -120,6 +224,14 @@ Complex.add = function(first, second) {
 
 };
 
+/**
+ * Subtracts a complex number from another and returns the result
+ * @method subtract
+ * @static
+ * @param first {Complex} An instance of the Complex Class
+ * @param second {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.subtract = function(first, second) {
 
   var firstnum, secondnum;
@@ -134,6 +246,14 @@ Complex.subtract = function(first, second) {
 
 };
 
+/**
+ * Returns the product of two complex numbers together
+ * @method multiply
+ * @static
+ * @param first {Complex} An instance of the Complex Class
+ * @param second {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.multiply = function(first, second) {
 
   var firstnum, secondnum;
@@ -148,6 +268,14 @@ Complex.multiply = function(first, second) {
 
 };
 
+/**
+ * Returns the division of a complex number by another
+ * @method divide
+ * @static
+ * @param first {Complex} The quotient. An instance of the Complex Class
+ * @param second {Complex} The divisor. An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.divide = function(first, second) {
 
   var firstnum, secondnum, numerator, denominator, multiplier;
@@ -164,6 +292,13 @@ Complex.divide = function(first, second) {
 
 };
 
+/**
+ * Negates a complex number and returns it
+ * @method negate
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.negate = function(num) {
 
   var complex;
@@ -172,6 +307,13 @@ Complex.negate = function(num) {
 
 };
 
+/**
+ * Returns the absolute value of the complex number
+ * @method abs
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Number} The absolute value
+ */
 Complex.abs = function(num) {
 
   var complex;
@@ -180,6 +322,13 @@ Complex.abs = function(num) {
 
 };
 
+/**
+ * Rounds down the real and imaginary parts of a complex number and returns it
+ * @method floor
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.floor = function(num) {
 
   var complex;
@@ -192,6 +341,13 @@ Complex.floor = function(num) {
 
 };
 
+/**
+ * Rounds up the real and imaginary parts of a complex number and returns it
+ * @method ceil
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.ceil = function(num) {
 
   var complex;
@@ -204,6 +360,13 @@ Complex.ceil = function(num) {
 
 };
 
+/**
+ * Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it
+ * @method round
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.round = function(num) {
 
   var complex;
@@ -216,6 +379,13 @@ Complex.round = function(num) {
 
 };
 
+/**
+ * Returns the square of a complex number
+ * @method square
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.square = function(num) {
 
   var complex;
@@ -228,12 +398,28 @@ Complex.square = function(num) {
 };
 
 // DeMoivre's Theorem
+/**
+ * Uses DeMoivre's Theorem to convert a complex number to its polar form and returns it
+ * @method polar
+ * @static
+ * @param r {Number} 
+ * @param t {Number}
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.polar = function(r, t) {
 
   return new Complex(r * Math.cos(t), r * Math.sin(t));
 
 };
 
+/**
+ * Returns a complex number raised to a real power
+ * @method pow
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @param exp {Number} The exponent
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.pow = function(num, exp) {
 
   var complex;
@@ -243,6 +429,13 @@ Complex.pow = function(num, exp) {
 
 };
 
+/**
+ * Returns the square root of a complex number
+ * @method sqrt
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.sqrt = function(num) {
 
   var complex;
@@ -252,6 +445,13 @@ Complex.sqrt = function(num) {
 
 };
 
+/**
+ * Returns natural logarithm of a complex number
+ * @method log
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.log = function(num){
 
   var complex;
@@ -261,6 +461,13 @@ Complex.log = function(num){
 
 };
 
+/**
+ * Returns the constant e raised to a complex power
+ * @method exp
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.exp = function(num) {
 
   var complex;
@@ -274,6 +481,13 @@ Complex.exp = function(num) {
 // Trigonometric Functions
 
 // formula: tan(c) = (e^(ci)-e^(-ci))/(i(e^(ci)+e^(-ci)))
+/**
+ * Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method tan
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.tan = function(num) {
 
   var complex;
@@ -288,6 +502,13 @@ Complex.tan = function(num) {
 };
 
 // formula: sin(c) = (e^(ci)-e^(-ci))/(2i)
+/**
+ * Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method sin
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.sin = function(num) {
 
   var complex;
@@ -300,6 +521,13 @@ Complex.sin = function(num) {
 };
 
 // formula: cos(c) = (e^(ci)+e^(-ci))/2
+/**
+ * Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method cos
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.cos = function(num) {
 
   var complex;
@@ -312,6 +540,13 @@ Complex.cos = function(num) {
 };
 
 // formula: arctan(c) = i/2 log((i+x)/(i-x))
+/**
+ * Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method atan
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.atan = function(num) {
 
   var complex;
@@ -322,6 +557,13 @@ Complex.atan = function(num) {
 };
 
 // formula: arcsin(c) = -i*log(ci+sqrt(1-c^2))
+/**
+ * Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method asin
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.asin = function(num) {
 
   var complex;
@@ -332,6 +574,13 @@ Complex.asin = function(num) {
 };
 
 // formula: arccos(c) = i*log(c-i*sqrt(1-c^2))
+/**
+ * Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method acos
+ * @static
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.acos = function(num) {
 
   var complex;
@@ -341,10 +590,22 @@ Complex.acos = function(num) {
 
 };
 
+/**
+ * Returns a random complex number
+ * @method random
+ * @static
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.random = function () {
   return new Complex(Math.random(), Math.random());
 };
 
+/**
+ * Returns the lowest complex number
+ * @method min
+ * @static
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.min = function() {
 
   var mags = [];
@@ -360,6 +621,12 @@ Complex.min = function() {
 
 };
 
+/**
+ * Returns the highest complex number
+ * @method max
+ * @static
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.max = function() {
 
   var mags = [];
@@ -376,86 +643,197 @@ Complex.max = function() {
 };
 
 // Non static methods (internal use of static methods)
+
+/**
+ * Adds two complex numbers together and returns the result
+ * @method add
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.add = function(num) {
   return Complex.add(this, num);
 };
 
+/**
+ * Subtracts a complex number from another and returns the result
+ * @method subtract
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.subtract = function(num) {
   return Complex.subtract(this, num);
 };
 
+/**
+ * Returns the product of two complex numbers together
+ * @method multiply
+ * @param num {Complex} An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.multiply = function(num) {
   return Complex.multiply(this, num);
 };
 
+/**
+ * Returns the division of a complex number by another
+ * @method divide
+ * @param num {Complex} The quotient. An instance of the Complex Class
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.divide = function(num) {
   return Complex.divide(this, num);
 };
 
+/**
+ * Negates a complex number and returns it
+ * @method negate
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.negate = function() {
   return Complex.negate(this);
 };
 
+/**
+ * Returns the absolute value of the complex number
+ * @method abs
+ * @return {Number} The absolute value
+ */
 Complex.prototype.abs = function() {
   return Complex.abs(this);
 };
 
+/**
+ * Rounds down the real and imaginary parts of a complex number and returns it
+ * @method floor
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.floor = function() {
   return Complex.floor(this);
 };
 
+/**
+ * Rounds up the real and imaginary parts of a complex number and returns it
+ * @method ceil
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.ceil = function() {
   return Complex.ceil(this);
 };
 
+/**
+ * Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it
+ * @method round
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.round = function() {
   return Complex.round(this);
 };
 
+/**
+ * Returns the square of a complex number
+ * @method square
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.square = function() {
   return Complex.square(this);
 };
 
+/**
+ * Returns a complex number raised to a real power
+ * @method pow
+ * @param exp {Number} The exponent
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.pow = function(exp) {
   return Complex.pow(this, exp);
 };
 
+/**
+ * Returns the square root of a complex number
+ * @method sqrt
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.sqrt = function() {
   return Complex.sqrt(this);
 };
 
+/**
+ * Returns natural logarithm of a complex number
+ * @method log
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.log = function() {
   return Complex.log(this);
 };
 
+/**
+ * Returns the constant e raised to a complex power
+ * @method exp
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.exp = function() {
     return Complex.exp(this);
 };
 
+/**
+ * Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method tan
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.tan = function() {
   return Complex.tan(this);
 };
 
+/**
+ * Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method sin
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.sin = function() {
   return Complex.sin(this);
 };
 
+/**
+ * Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method cos
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.cos = function() {
   return Complex.cos(this);
 };
 
+/**
+ * Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method atan
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.atan = function() {
   return Complex.atan(this);
 };
 
+/**
+ * Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method asin
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.asin = function() {
   return Complex.asin(this);
 };
 
+/**
+ * Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number
+ * @method acos
+ * @return {Complex} An instance of the Complex class
+ */
 Complex.prototype.acos = function() {
   return Complex.acos(this);
 };
 
+/**
+ * Returns a complex number in the form a + bi
+ * @method toString()
+ * @return {String} An instance of the Complex class
+ */
 Complex.prototype.toString = function() {
 
   var r = this.real.toString();
