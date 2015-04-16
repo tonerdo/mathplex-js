@@ -11,9 +11,8 @@
  * Software, and to permit persons to whom the Software is furnished
  * to do so, subject to the following conditions:
  *
- * included in all copies or substantial portions of the Software.
- *
  * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -33,8 +32,9 @@ function Complex(real, imaginary) {
   this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
   this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
 
-  this.magnitude = (this.real * this.real) + (this.imaginary * this.imaginary);
+  this.magnitude = Math.sqrt((this.real * this.real) + (this.imaginary * this.imaginary));
   this.tangent = Math.atan2(this.imaginary, this.real);
+  this.tangent = Math.PI - (Math.PI * 3 - (Math.PI - (Math.PI * 3 - this.tangent) % (Math.PI * 2))) % (Math.PI * 2);
 
 }
 
@@ -182,13 +182,7 @@ Complex.square = function(num) {
 };
 
 // DeMoivre's Theorem
-Complex.polar = function(num) {
-
-  var complex;
-  complex = Complex.transform(num);
-
-  var t = Math.atan2(complex.imaginary, complex.real);
-  var r = Math.sqrt(Math.pow(complex.real, 2) + Math.pow(complex.imaginary, 2));
+Complex.polar = function(r, t) {
 
   return new Complex(r * Math.cos(t), r * Math.sin(t));
 
@@ -196,21 +190,10 @@ Complex.polar = function(num) {
 
 Complex.pow = function(num, exp) {
 
-  var complex = Complex.transform(num);
+  var complex;
+  complex = Complex.transform(num);
 
-  var t = complex.tangent;
-  var exponent = parseFloat(exp);
-
-  var r = Math.sqrt(Math.pow(complex.real, 2) + Math.pow(complex.imaginary, 2));
-  r = Math.pow(r, exponent);
-
-  var real = r * (exponent * Math.cos(t));
-  var imaginary = r * (exponent * Math.cos(t));
-
-  this.real = real;
-  this.imaginary = imaginary;
-
-  return complex;
+  return Complex.polar(Math.pow(complex.magnitude, exp), complex.tangent * exp);
 
 };
 
@@ -254,7 +237,7 @@ Complex.tan = function(num) {
   var pos = Complex.exp(ci);
   var neg = Complex.exp(Complex.negate(ci));
 
-  return pos.subtract(neg).divide(Complex.exp(ci).add(Complex.exp(Complex.negate(ci))));
+  return pos.subtract(neg).divide(pos.add(neg).multiply(Complex.I));
 
 };
 
@@ -282,42 +265,6 @@ Complex.cos = function(num) {
 
 };
 
-
-// formula: cot(c) = i(e^(ci)+e^(-ci))/(e^(ci)-e^(-ci))
-Complex.cot = function(num) {
-
-  var complex;
-  complex = Complex.transform(num);
-
-  var ci = complex.multiply(Complex.I);
-  var pos = Complex.exp(ci);
-  var neg = Complex.exp(Complex.negate(ci));
-
-  return pos.add(neg).multiply(Complex.I).divide(pos.subtract(neg));
-
-};
-
-// formula: sec(c) = 2/(e^(ci)+e^(-ci))
-Complex.sec = function(num) {
-
-  var complex;
-  complex = Complex.transform(num);
-
-  var ci = complex.multiply(Complex.I);
-
-  return new Complex(2, 0).divide(Complex.exp(ci).add(Complex.exp(Complex.negate(ci))));
-};
-
-// formula: cosec(c) = 2i/(e^(ci)-e^(-ci))
-Complex.cosec = function(num) {
-
-  var complex;
-  complex = Complex.transform(num);
-
-  return new Complex(2, 0).divide(Complex.exp(ci).subtract(Complex.exp(Complex.negate(ci))));
-
-};
-
 // formula: arctan(c) = i/2 log((i+x)/(i-x))
 Complex.atan = function(num) {
 
@@ -328,13 +275,13 @@ Complex.atan = function(num) {
 
 };
 
-// formula: arcsec(c) = -i*log(1/c+sqrt(1-i/c^2))
-Complex.asec = function(num) {
+// formula: arcsin(c) = -i*log(ci+sqrt(1-c^2))
+Complex.asin = function(num) {
 
   var complex;
   complex = Complex.transform(num);
 
-  return Complex.NEG_I.multiply(Complex.log(complex.pow(-1).add(Complex.sqrt(Complex.ONE.subtract(Complex.I.divide(complex.pow(2)))))));
+  return Complex.NEG_I.multiply(Complex.log(complex.multiply(Complex.I).add(Complex.sqrt(Complex.ONE.subtract(complex.pow(2))))));
 
 };
 
@@ -344,7 +291,41 @@ Complex.acos = function(num) {
   var complex;
   complex = Complex.transform(num);
 
-  return Complex.I.multiply(Complex.log(complex.subtract(Complex.I).multiply(Complex.sqrt(Complex.ONE.subtract(complex.pow(2))))));
+  return Complex.I.multiply(Complex.log(complex.add(Complex.NEG_I.multiply(Complex.sqrt(Complex.ONE.subtract(complex.pow(2)))))));
+
+};
+
+Complex.random = function () {
+  return new Complex(Math.random(), Math.random());
+};
+
+Complex.min = function() {
+
+  var mags = [];
+  var cs = [];
+
+  for (var i = 0; i < arguments.length; i++) {
+    cs.push(arguments[i]);
+    mags.push(arguments[i].magnitude);
+  }
+
+  var min = Math.min.apply(Math, mags);
+  return cs[mags.indexOf(min)];
+
+};
+
+Complex.max = function() {
+
+  var mags = [];
+  var cs = [];
+
+  for (var i = 0; i < arguments.length; i++) {
+    cs.push(arguments[i]);
+    mags.push(arguments[i].magnitude);
+  }
+
+  var max = Math.max.apply(Math, mags);
+  return cs[mags.indexOf(max)];
 
 };
 
@@ -401,6 +382,10 @@ Complex.prototype.log = function() {
   return Complex.log(this);
 };
 
+Complex.prototype.exp = function() {
+    return Complex.exp(this);
+};
+
 Complex.prototype.tan = function() {
   return Complex.tan(this);
 };
@@ -411,18 +396,6 @@ Complex.prototype.sin = function() {
 
 Complex.prototype.cos = function() {
   return Complex.cos(this);
-};
-
-Complex.prototype.cot = function() {
-  return Complex.cot(this);
-};
-
-Complex.prototype.sec = function() {
-  return Complex.sec(this);
-};
-
-Complex.prototype.cosec = function() {
-  return Complex.cosec(this);
 };
 
 Complex.prototype.atan = function() {
@@ -436,3 +409,6 @@ Complex.prototype.asin = function() {
 Complex.prototype.acos = function() {
   return Complex.acos(this);
 };
+
+if (typeof module !== 'undefined' && module !== null && module.exports)
+  module.exports = Complex;
