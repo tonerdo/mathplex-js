@@ -3,7 +3,8 @@
         "name": "Mathplex-Js library documentation",
         "description": "A javascript math library for arithmetic and trigonometric operations on complex numbers",
         "version": "1.0.0",
-        "url": "http://tonerdo.github.com/mathplex-js"
+        "url": "http://tonerdo.github.com/mathplex-js",
+        "logo": "http://tonerdo.github.io/Spotify-Instant/images/mathplex.png"
     },
     "files": {
         "mathplex.js": {
@@ -62,13 +63,16 @@
             "return": {
                 "description": "An instance of the Complex class",
                 "type": "Complex"
-            }
+            },
+            "example": [
+                "\n   // 2 + 7i\n   var c = new Complex(2, 7);\n   // -3.4 + 45i (Using string formated numbers)\n   var c = new Complex('-3.4', '45');"
+            ]
         }
     },
     "classitems": [
         {
             "file": "mathplex.js",
-            "line": 42,
+            "line": 47,
             "description": "The real part of a complex number",
             "itemtype": "property",
             "name": "real",
@@ -78,7 +82,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 49,
+            "line": 54,
             "description": "The imaginary part of a complex number",
             "itemtype": "property",
             "name": "imaginary",
@@ -88,7 +92,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 59,
+            "line": 64,
             "description": "Two dimensional distance from the origin",
             "itemtype": "property",
             "name": "magnitude",
@@ -98,7 +102,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 66,
+            "line": 71,
             "description": "The arc tangent (in radians) of the real and imaginary. Useful in polar form calculation",
             "itemtype": "property",
             "name": "tangent",
@@ -108,7 +112,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 78,
+            "line": 83,
             "description": "A complex number with both real and imaginary parts set to zero",
             "itemtype": "property",
             "name": "ZERO",
@@ -120,7 +124,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 87,
+            "line": 92,
             "description": "A complex number with real part set to one and imaginary part set to zero",
             "itemtype": "property",
             "name": "ONE",
@@ -132,7 +136,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 96,
+            "line": 101,
             "description": "A complex number with real part set to zero and imaginary part set to one",
             "itemtype": "property",
             "name": "I",
@@ -144,7 +148,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 105,
+            "line": 110,
             "description": "A complex number with real part set to negative one and imaginary part set to zero",
             "itemtype": "property",
             "name": "NEG_I",
@@ -156,7 +160,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 114,
+            "line": 119,
             "description": "A complex number with real part set to PI and imaginary part set to zero",
             "itemtype": "property",
             "name": "PI",
@@ -168,7 +172,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 123,
+            "line": 128,
             "description": "A complex number with real part set to constant e and imaginary part set to zero",
             "itemtype": "property",
             "name": "E",
@@ -180,7 +184,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 133,
+            "line": 138,
             "description": "Standalone function to parse a string expression into a complex number and returns the result",
             "itemtype": "method",
             "name": "parseComplex",
@@ -188,12 +192,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   // same as new Complex(2.5, 60)\n   parseComplex(\"2.5+60i\")\n   // same as new Complex(-2, 7)\n   parseComplex(\"-2+7i\")"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 186,
+            "line": 196,
             "description": "Transforms a number or string to a complex number and returns the result",
             "itemtype": "method",
             "name": "transform",
@@ -214,7 +221,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 205,
+            "line": 215,
             "description": "Adds two complex numbers together and returns the result",
             "itemtype": "method",
             "name": "add",
@@ -235,12 +242,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   Complex c1 = new Complex(3,5);\n   Complex c2 = new Complex(23,-15);\n   Complex.add(c1,c2);\n   // All methods call the parseComplex() function internally so the below will give the same result\n   Complex.add('3+5i','23-15i');\n"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 227,
+            "line": 244,
             "description": "Subtracts a complex number from another and returns the result",
             "itemtype": "method",
             "name": "subtract",
@@ -266,7 +276,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 249,
+            "line": 266,
             "description": "Returns the product of two complex numbers together",
             "itemtype": "method",
             "name": "multiply",
@@ -292,7 +302,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 271,
+            "line": 288,
             "description": "Returns the division of a complex number by another",
             "itemtype": "method",
             "name": "divide",
@@ -318,7 +328,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 295,
+            "line": 312,
             "description": "Negates a complex number and returns it",
             "itemtype": "method",
             "name": "negate",
@@ -334,12 +344,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c = new Complex(13,21);\n   // returns new Complex(-13, -21);\n   Complex.negate(c);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 310,
+            "line": 331,
             "description": "Returns the absolute value of a complex number",
             "itemtype": "method",
             "name": "abs",
@@ -355,12 +368,15 @@
                 "description": "The absolute value",
                 "type": "Number"
             },
+            "example": [
+                "\n   Complex.abs(new Complex(11,6));"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 325,
+            "line": 348,
             "description": "Rounds down the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "floor",
@@ -381,7 +397,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 344,
+            "line": 367,
             "description": "Rounds up the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "ceil",
@@ -402,7 +418,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 363,
+            "line": 386,
             "description": "Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "round",
@@ -423,7 +439,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 382,
+            "line": 405,
             "description": "Returns the square of a complex number",
             "itemtype": "method",
             "name": "square",
@@ -444,7 +460,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 401,
+            "line": 424,
             "description": "Uses DeMoivre's Theorem to convert a complex number to its polar form and returns it",
             "itemtype": "method",
             "name": "polar",
@@ -470,7 +486,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 415,
+            "line": 438,
             "description": "Returns a complex number raised to a real power",
             "itemtype": "method",
             "name": "pow",
@@ -496,7 +512,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 432,
+            "line": 455,
             "description": "Returns the square root of a complex number",
             "itemtype": "method",
             "name": "sqrt",
@@ -517,7 +533,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 448,
+            "line": 471,
             "description": "Returns natural logarithm of a complex number",
             "itemtype": "method",
             "name": "log",
@@ -538,7 +554,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 464,
+            "line": 487,
             "description": "Returns the constant e raised to a complex power",
             "itemtype": "method",
             "name": "exp",
@@ -554,13 +570,16 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   // e^(21+33i)\n   var c = new Complex(21,33);\n   Complex.exp(c);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 484,
-            "description": "Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "line": 511,
+            "description": "Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number\nformula: tan(c) = (e^(ci)-e^(-ci))/(i(e^(ci)+e^(-ci)))",
             "itemtype": "method",
             "name": "tan",
             "static": 1,
@@ -580,8 +599,8 @@
         },
         {
             "file": "mathplex.js",
-            "line": 505,
-            "description": "Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "line": 533,
+            "description": "Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number\nformula: sin(c) = (e^(ci)-e^(-ci))/(2i)",
             "itemtype": "method",
             "name": "sin",
             "static": 1,
@@ -601,8 +620,8 @@
         },
         {
             "file": "mathplex.js",
-            "line": 524,
-            "description": "Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "line": 553,
+            "description": "Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number\nformula: cos(c) = (e^(ci)+e^(-ci))/2",
             "itemtype": "method",
             "name": "cos",
             "static": 1,
@@ -622,8 +641,8 @@
         },
         {
             "file": "mathplex.js",
-            "line": 543,
-            "description": "Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "line": 573,
+            "description": "Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number\narctan(c) = i/2 log((i+x)/(i-x))",
             "itemtype": "method",
             "name": "atan",
             "static": 1,
@@ -643,7 +662,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 560,
+            "line": 591,
             "description": "Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "asin",
@@ -664,8 +683,8 @@
         },
         {
             "file": "mathplex.js",
-            "line": 577,
-            "description": "Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "line": 608,
+            "description": "Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number\nformula: arccos(c) = i*log(c-i*sqrt(1-c^2))",
             "itemtype": "method",
             "name": "acos",
             "static": 1,
@@ -685,7 +704,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 593,
+            "line": 625,
             "description": "Returns a random complex number",
             "itemtype": "method",
             "name": "random",
@@ -699,7 +718,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 603,
+            "line": 635,
             "description": "Returns the lowest complex number",
             "itemtype": "method",
             "name": "min",
@@ -708,12 +727,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c1 = new Complex(23,5);\n   var c2 = new Complex(12,6);\n   var c3 = new Complex(2,33);\n   Complex.min(c1,c2,c3);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 624,
+            "line": 661,
             "description": "Returns the highest complex number",
             "itemtype": "method",
             "name": "max",
@@ -722,12 +744,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c1 = new Complex(23,5);\n   var c2 = new Complex(12,6);\n   var c3 = new Complex(2,33);\n   Complex.max(c1,c2,c3);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 647,
+            "line": 689,
             "description": "Adds two complex numbers together and returns the result",
             "itemtype": "method",
             "name": "add",
@@ -742,12 +767,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c = new Complex(23,64);\n   var d = new Complex(12,10);\n   // adds d to c\n   c.add(d);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 657,
+            "line": 704,
             "description": "Subtracts a complex number from another and returns the result",
             "itemtype": "method",
             "name": "subtract",
@@ -762,12 +790,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c = new Complex(23,64);\n   var d = new Complex(12,10);\n   // subtract d from c\n   c.subtract(d);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 667,
+            "line": 719,
             "description": "Returns the product of two complex numbers together",
             "itemtype": "method",
             "name": "multiply",
@@ -782,12 +813,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c = new Complex(23,64);\n   var d = new Complex(12,10);\n   // multiplies d and c\n   c.multiply(d);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 677,
+            "line": 734,
             "description": "Returns the division of a complex number by another",
             "itemtype": "method",
             "name": "divide",
@@ -807,7 +841,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 687,
+            "line": 744,
             "description": "Negates a complex number and returns it",
             "itemtype": "method",
             "name": "negate",
@@ -820,7 +854,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 696,
+            "line": 753,
             "description": "Returns the absolute value of a complex number",
             "itemtype": "method",
             "name": "abs",
@@ -828,12 +862,15 @@
                 "description": "The absolute value",
                 "type": "Number"
             },
+            "example": [
+                "\n   var c = new Complex(23,64);\n   // returns the absolute value of c\n   c.abs();"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 705,
+            "line": 766,
             "description": "Rounds down the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "floor",
@@ -846,7 +883,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 714,
+            "line": 775,
             "description": "Rounds up the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "ceil",
@@ -859,7 +896,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 723,
+            "line": 784,
             "description": "Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it",
             "itemtype": "method",
             "name": "round",
@@ -872,7 +909,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 732,
+            "line": 793,
             "description": "Returns the square of a complex number",
             "itemtype": "method",
             "name": "square",
@@ -885,7 +922,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 741,
+            "line": 802,
             "description": "Returns a complex number raised to a real power",
             "itemtype": "method",
             "name": "pow",
@@ -900,12 +937,15 @@
                 "description": "An instance of the Complex class",
                 "type": "Complex"
             },
+            "example": [
+                "\n   var c = new Complex(23,64);\n   // adds c raised to the power of 4\n   c.pow(4);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         },
         {
             "file": "mathplex.js",
-            "line": 751,
+            "line": 816,
             "description": "Returns the square root of a complex number",
             "itemtype": "method",
             "name": "sqrt",
@@ -918,7 +958,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 760,
+            "line": 825,
             "description": "Returns natural logarithm of a complex number",
             "itemtype": "method",
             "name": "log",
@@ -931,7 +971,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 769,
+            "line": 834,
             "description": "Returns the constant e raised to a complex power",
             "itemtype": "method",
             "name": "exp",
@@ -944,7 +984,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 778,
+            "line": 843,
             "description": "Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "tan",
@@ -957,7 +997,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 787,
+            "line": 852,
             "description": "Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "sin",
@@ -970,7 +1010,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 796,
+            "line": 861,
             "description": "Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "cos",
@@ -983,7 +1023,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 805,
+            "line": 870,
             "description": "Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "atan",
@@ -996,7 +1036,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 814,
+            "line": 879,
             "description": "Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "asin",
@@ -1009,7 +1049,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 823,
+            "line": 888,
             "description": "Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
             "itemtype": "method",
             "name": "acos",
@@ -1022,7 +1062,7 @@
         },
         {
             "file": "mathplex.js",
-            "line": 832,
+            "line": 897,
             "description": "Returns a complex number in the form a + bi",
             "itemtype": "method",
             "name": "toString()",
@@ -1030,6 +1070,9 @@
                 "description": "An instance of the Complex class",
                 "type": "String"
             },
+            "example": [
+                "\n   // returns -11+4i\n   var c = new Complex(-11,4);"
+            ],
             "class": "Complex",
             "module": "Mathplex"
         }
