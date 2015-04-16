@@ -1,0 +1,12 @@
+{
+    "name": "Mathplex-Js library documentation",
+    "description": "A javascript math library for arithmetic and trigonometric operations on complex numbers",
+    "version": "1.0.0",
+    "url": "http://tonerdo.github.com/mathplex-js",
+	"options": {
+        "linkNatives": "true",
+        "outdir": "./docs",
+        "paths": "."
+    }
+
+}

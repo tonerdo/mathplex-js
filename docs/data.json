@@ -1,0 +1,1038 @@
+{
+    "project": {
+        "name": "Mathplex-Js library documentation",
+        "description": "A javascript math library for arithmetic and trigonometric operations on complex numbers",
+        "version": "1.0.0",
+        "url": "http://tonerdo.github.com/mathplex-js"
+    },
+    "files": {
+        "mathplex.js": {
+            "name": "mathplex.js",
+            "modules": {
+                "Mathplex": 1
+            },
+            "classes": {
+                "Complex": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Mathplex": {
+            "name": "Mathplex",
+            "submodules": {},
+            "classes": {
+                "Complex": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "mathplex.js",
+            "line": 32,
+            "description": "This module contains the class and all methods for working with complex numbers"
+        }
+    },
+    "classes": {
+        "Complex": {
+            "name": "Complex",
+            "shortname": "Complex",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mathplex",
+            "namespace": "",
+            "file": "mathplex.js",
+            "line": 32,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "real",
+                    "description": "The real part of a complex number",
+                    "type": "Number"
+                },
+                {
+                    "name": "imaginary",
+                    "description": "The real part of a complex number",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            }
+        }
+    },
+    "classitems": [
+        {
+            "file": "mathplex.js",
+            "line": 42,
+            "description": "The real part of a complex number",
+            "itemtype": "property",
+            "name": "real",
+            "type": "Number",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 49,
+            "description": "The imaginary part of a complex number",
+            "itemtype": "property",
+            "name": "imaginary",
+            "type": "Number",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 59,
+            "description": "Two dimensional distance from the origin",
+            "itemtype": "property",
+            "name": "magnitude",
+            "type": "Number",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 66,
+            "description": "The arc tangent (in radians) of the real and imaginary. Useful in polar form calculation",
+            "itemtype": "property",
+            "name": "tangent",
+            "type": "Number",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 78,
+            "description": "A complex number with both real and imaginary parts set to zero",
+            "itemtype": "property",
+            "name": "ZERO",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 87,
+            "description": "A complex number with real part set to one and imaginary part set to zero",
+            "itemtype": "property",
+            "name": "ONE",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 96,
+            "description": "A complex number with real part set to zero and imaginary part set to one",
+            "itemtype": "property",
+            "name": "I",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 105,
+            "description": "A complex number with real part set to negative one and imaginary part set to zero",
+            "itemtype": "property",
+            "name": "NEG_I",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 114,
+            "description": "A complex number with real part set to PI and imaginary part set to zero",
+            "itemtype": "property",
+            "name": "PI",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 123,
+            "description": "A complex number with real part set to constant e and imaginary part set to zero",
+            "itemtype": "property",
+            "name": "E",
+            "final": 1,
+            "static": 1,
+            "type": "Complex",
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 133,
+            "description": "Standalone function to parse a string expression into a complex number and returns the result",
+            "itemtype": "method",
+            "name": "parseComplex",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 186,
+            "description": "Transforms a number or string to a complex number and returns the result",
+            "itemtype": "method",
+            "name": "transform",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "The object to transform to a complex number",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 205,
+            "description": "Adds two complex numbers together and returns the result",
+            "itemtype": "method",
+            "name": "add",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                },
+                {
+                    "name": "second",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 227,
+            "description": "Subtracts a complex number from another and returns the result",
+            "itemtype": "method",
+            "name": "subtract",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                },
+                {
+                    "name": "second",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 249,
+            "description": "Returns the product of two complex numbers together",
+            "itemtype": "method",
+            "name": "multiply",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                },
+                {
+                    "name": "second",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 271,
+            "description": "Returns the division of a complex number by another",
+            "itemtype": "method",
+            "name": "divide",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": "The quotient. An instance of the Complex Class",
+                    "type": "Complex"
+                },
+                {
+                    "name": "second",
+                    "description": "The divisor. An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 295,
+            "description": "Negates a complex number and returns it",
+            "itemtype": "method",
+            "name": "negate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 310,
+            "description": "Returns the absolute value of a complex number",
+            "itemtype": "method",
+            "name": "abs",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "The absolute value",
+                "type": "Number"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 325,
+            "description": "Rounds down the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "floor",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 344,
+            "description": "Rounds up the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "ceil",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 363,
+            "description": "Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "round",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 382,
+            "description": "Returns the square of a complex number",
+            "itemtype": "method",
+            "name": "square",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 401,
+            "description": "Uses DeMoivre's Theorem to convert a complex number to its polar form and returns it",
+            "itemtype": "method",
+            "name": "polar",
+            "static": 1,
+            "params": [
+                {
+                    "name": "r",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "t",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 415,
+            "description": "Returns a complex number raised to a real power",
+            "itemtype": "method",
+            "name": "pow",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                },
+                {
+                    "name": "exp",
+                    "description": "The exponent",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 432,
+            "description": "Returns the square root of a complex number",
+            "itemtype": "method",
+            "name": "sqrt",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 448,
+            "description": "Returns natural logarithm of a complex number",
+            "itemtype": "method",
+            "name": "log",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 464,
+            "description": "Returns the constant e raised to a complex power",
+            "itemtype": "method",
+            "name": "exp",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 484,
+            "description": "Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "tan",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 505,
+            "description": "Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "sin",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 524,
+            "description": "Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "cos",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 543,
+            "description": "Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "atan",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 560,
+            "description": "Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "asin",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 577,
+            "description": "Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "acos",
+            "static": 1,
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 593,
+            "description": "Returns a random complex number",
+            "itemtype": "method",
+            "name": "random",
+            "static": 1,
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 603,
+            "description": "Returns the lowest complex number",
+            "itemtype": "method",
+            "name": "min",
+            "static": 1,
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 624,
+            "description": "Returns the highest complex number",
+            "itemtype": "method",
+            "name": "max",
+            "static": 1,
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 647,
+            "description": "Adds two complex numbers together and returns the result",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 657,
+            "description": "Subtracts a complex number from another and returns the result",
+            "itemtype": "method",
+            "name": "subtract",
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 667,
+            "description": "Returns the product of two complex numbers together",
+            "itemtype": "method",
+            "name": "multiply",
+            "params": [
+                {
+                    "name": "num",
+                    "description": "An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 677,
+            "description": "Returns the division of a complex number by another",
+            "itemtype": "method",
+            "name": "divide",
+            "params": [
+                {
+                    "name": "num",
+                    "description": "The quotient. An instance of the Complex Class",
+                    "type": "Complex"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 687,
+            "description": "Negates a complex number and returns it",
+            "itemtype": "method",
+            "name": "negate",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 696,
+            "description": "Returns the absolute value of a complex number",
+            "itemtype": "method",
+            "name": "abs",
+            "return": {
+                "description": "The absolute value",
+                "type": "Number"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 705,
+            "description": "Rounds down the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "floor",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 714,
+            "description": "Rounds up the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "ceil",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 723,
+            "description": "Rounds to the nearest whole number the real and imaginary parts of a complex number and returns it",
+            "itemtype": "method",
+            "name": "round",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 732,
+            "description": "Returns the square of a complex number",
+            "itemtype": "method",
+            "name": "square",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 741,
+            "description": "Returns a complex number raised to a real power",
+            "itemtype": "method",
+            "name": "pow",
+            "params": [
+                {
+                    "name": "exp",
+                    "description": "The exponent",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 751,
+            "description": "Returns the square root of a complex number",
+            "itemtype": "method",
+            "name": "sqrt",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 760,
+            "description": "Returns natural logarithm of a complex number",
+            "itemtype": "method",
+            "name": "log",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 769,
+            "description": "Returns the constant e raised to a complex power",
+            "itemtype": "method",
+            "name": "exp",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 778,
+            "description": "Returns the tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "tan",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 787,
+            "description": "Returns the sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "sin",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 796,
+            "description": "Returns the cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "cos",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 805,
+            "description": "Returns the arc tangent (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "atan",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 814,
+            "description": "Returns the arc sine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "asin",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 823,
+            "description": "Returns the arc cosine (in radians) of the angle formed by the real and imaginary parts of a complex number",
+            "itemtype": "method",
+            "name": "acos",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "Complex"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        },
+        {
+            "file": "mathplex.js",
+            "line": 832,
+            "description": "Returns a complex number in the form a + bi",
+            "itemtype": "method",
+            "name": "toString()",
+            "return": {
+                "description": "An instance of the Complex class",
+                "type": "String"
+            },
+            "class": "Complex",
+            "module": "Mathplex"
+        }
+    ],
+    "warnings": []
+}
