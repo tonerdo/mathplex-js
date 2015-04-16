@@ -27,11 +27,12 @@ function Complex(real, imaginary) {
 
   this.real = 0;
   this.imaginary = 0;
-  this.magnitude = 0;
   
   this.real = (typeof real === 'undefined') ? this.real : parseFloat(real);
   this.imaginary = (typeof imaginary === 'undefined') ? this.imaginary : parseFloat(imaginary);
+
   this.magnitude = (this.real * this.real) + (this.imaginary * this.imaginary);
+  this.tangent = Math.atan2(this.imaginary, this.real);
 
 }
 
@@ -71,6 +72,20 @@ Complex.add = function(first, second) {
 
 };
 
+Complex.subtract = function(first, second) {
+
+  var firstnum, secondnum;
+
+  firstnum = Complex.transform(first);
+  secondnum = Complex.transform(second);
+
+  var real = firstnum.real - secondnum.real;
+  var imaginary = firstnum.imaginary - secondnum.imaginary;
+
+  return new Complex(real, imaginary);
+
+};
+
 Complex.multiply = function(first, second) {
 
   var firstnum, secondnum;
@@ -82,6 +97,22 @@ Complex.multiply = function(first, second) {
   var imaginary = (firstnum.real * secondnum.imaginary) + (firstnum.imaginary * secondnum.real);
 
   return new Complex(real, imaginary);
+
+};
+
+Complex.divide = function(first, second) {
+
+  var firstnum, secondnum, numerator, denominator, multiplier;
+
+  firstnum = Complex.transform(first);
+  secondnum = Complex.transform(second);
+  multiplier = new Complex(secondnum.real, secondnum.imaginary);
+  multiplier.imaginary = multiplier.imaginary * -1;
+
+  numerator = Complex.multiply(firstnum, multiplier);
+  denominator = Complex.multiply(secondnum, multiplier);
+
+  return new Complex(numerator.real / denominator.real, numerator.imaginary / denominator.real);
 
 };
 
@@ -146,4 +177,119 @@ Complex.square = function(num) {
   var imaginary = 2 * complex.real * complex.imaginary;
 
   return new Complex(real, imaginary);
+};
+
+// DeMoivre's Theorem
+Complex.polar = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  var t = Math.atan2(complex.imaginary, complex.real);
+  var r = Math.sqrt(Math.pow(complex.real, 2) + Math.pow(complex.imaginary, 2));
+
+  return new Complex(r * Math.cos(t), r * Math.sin(t));
+
+};
+
+Complex.pow = function(num, exp) {
+
+  var complex = Complex.transform(num);
+
+  var t = complex.tangent;
+  var exponent = parseFloat(exp);
+
+  var r = Math.sqrt(Math.pow(complex.real, 2) + Math.pow(complex.imaginary, 2));
+  r = Math.pow(r, exponent);
+
+  var real = r * (exponent * Math.cos(t));
+  var imaginary = r * (exponent * Math.cos(t));
+
+  this.real = real;
+  this.imaginary = imaginary;
+
+  return complex;
+
+};
+
+Complex.sqrt = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return complex.pow(0.5);
+
+};
+
+Complex.log = function(num){
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return new Complex(Math.log(complex.magnitude), complex.tangent);
+
+};
+
+Complex.exp = function(num) {
+
+  var complex;
+  complex = Complex.transform(num);
+
+  return complex.imaginary === 0 ?
+
+};
+
+
+
+// Non static methods (internal use of static methods)
+Complex.prototype.add = function(num) {
+  return Complex.add(this, num);
+};
+
+Complex.prototype.subtract = function(num) {
+  return Complex.subtract(this, num);
+};
+
+Complex.prototype.multiply = function(num) {
+  return Complex.multiply(this, num);
+};
+
+Complex.prototype.divide = function(num) {
+  return Complex.divide(this, num);
+};
+
+Complex.prototype.negate = function() {
+  return Complex.negate(this);
+};
+
+Complex.prototype.abs = function() {
+  return Complex.abs(this);
+};
+
+Complex.prototype.floor = function() {
+  return Complex.floor(this);
+};
+
+Complex.prototype.ceil = function() {
+  return Complex.ceil(this);
+};
+
+Complex.prototype.round = function() {
+  return Complex.round(this);
+};
+
+Complex.prototype.square = function() {
+  return Complex.square(this);
+};
+
+Complex.prototype.pow = function(exp) {
+  return Complex.pow(this, exp);
+};
+
+Complex.prototype.sqrt = function() {
+  return Complex.sqrt(this);
+};
+
+Complex.prototype.log = function() {
+  return Complex.log(this);
 };
