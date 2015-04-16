@@ -47,6 +47,51 @@ Complex.SQR_I = -1;
 Complex.PI = new Complex(Math.PI, 0);
 Complex.E = new Complex(Math.E, 0);
 
+var parseComplex = function(num) {
+
+  if (num instanceof Complex)
+    return num;
+
+  if (typeof num !== 'string')
+    return undefined;
+
+  var e = num;
+  var valid = ['0','1','2','3','4','5','6','7','8','9','+','-'];
+  for (var i = 0; i < num.length; i++)
+    if (valid.indexOf(num[i]) == -1)
+      e = e.replace(num[i], '');
+
+  var real = 1, imaginary = 1, startindex = 0;
+
+  real = (e[0] == '-') ? -1 : real;
+  startindex = (e[0] == '-' || e[0] == '+') ? 1 : startindex;
+
+  var temp_real = '';
+  for (var j = startindex; j < e.length; j++) {
+    startindex = j;
+    if (e[j] == '+' || e[j] == '-')
+      break;
+    else
+      temp_real += e[j];
+  }
+
+  real = real * Number(temp_real);
+  imaginary = e[startindex] == '-' ? -1 : imaginary;
+  ++startindex;
+
+  var temp_imag = '';
+  for (var k = startindex; k < e.length; k++) {
+    if (e[k] == '+' || e[k] == '-')
+      break;
+    else
+      temp_imag += e[k];
+  }
+
+  imaginary = imaginary * Number(temp_imag);
+
+  return new Complex(real, imaginary);
+
+};
 
 // Static Methods
 Complex.transform = function(num) {
@@ -55,6 +100,7 @@ Complex.transform = function(num) {
 
   complex = (num instanceof Complex) ? num : complex;
   complex = (typeof num === 'number') ? new Complex(num, 0) : num;
+  complex = (typeof num === 'string') ? parseComplex(num) : complex;
 
   return complex;
 
@@ -410,5 +456,18 @@ Complex.prototype.acos = function() {
   return Complex.acos(this);
 };
 
+Complex.prototype.toString = function() {
+
+  var r = this.real.toString();
+  var i = this.imaginary.toString() + "i";
+  if (this.imaginary > 0)
+    i = "+" + i;
+
+  return r + i;
+
+};
+
 if (typeof module !== 'undefined' && module !== null && module.exports)
   module.exports = Complex;
+else
+  Math.Complex = Complex;
