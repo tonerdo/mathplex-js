@@ -1,0 +1,42 @@
+body {
+
+}
+
+@font-face {
+  font-family: digital;
+  src: url('../fonts/digital-7.ttf');
+}
+
+#calculator {
+  width: 50%;
+  margin: auto;
+}
+
+  #calculator h2 {
+    font-family: 'Segoe UI Light';
+  }
+
+  #calculator input[type=text] {
+    font-family: digital,'Yu Gothic';
+    width: 100%;
+    font-size: 50px;
+    text-align: right;
+    padding: 3px;
+    padding-top: 15px;
+    border: 1px solid #ccc;
+    border-top: 2px solid maroon;
+    margin-top: 5px;
+  }
+
+  #calculator input#first {
+    width: 48%;
+  }
+
+  #calculator input#second {
+    width: 48%;
+    float: right;
+  }
+
+#keypad {
+  margin-top: 5px;
+}

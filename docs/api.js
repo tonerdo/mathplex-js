@@ -10,7 +10,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Mathplex",
             "name": "Mathplex",
-            "description": "This module contains the class and all methods for working with complex numbers"
+            "description": "This module contains the classes and all methods for working with complex numbers"
         }
     ]
 } };
