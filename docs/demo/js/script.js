@@ -86,6 +86,8 @@ function handleOperation(e) {
     c3 = Complex.max(c1, c2);
   else if (use == 'pow')
     c3 = c1.pow(second.value);
+  else if (use == 'sqt')
+    c3 = c1.pow(1 / Number(second.value));
 
   result.value = c3.toString();
 
