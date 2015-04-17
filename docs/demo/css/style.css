@@ -40,3 +40,15 @@ body {
 #keypad {
   margin-top: 5px;
 }
+
+#keypad button {
+  border: 0px;
+  cursor: pointer;
+  background-color: cornflowerblue;
+  width: 50px;
+  height: 30px;
+  padding: 3px;
+  color: white;
+  font-family: 'Calibri';
+  margin-top: 2px;
+}
